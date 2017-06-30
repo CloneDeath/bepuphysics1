@@ -160,16 +160,15 @@ namespace BEPUutilities.Threading
         {
             lock (disposedLocker)
             {
-                if (!disposed)
+                if (disposed) return;
+                
+                disposed = true;
+                while (workers.Count > 0)
                 {
-                    disposed = true;
-                    while (workers.Count > 0)
-                    {
-                        RemoveThread();
-                    }
-                    loopFinished.Close();
-                    GC.SuppressFinalize(this);
+                    RemoveThread();
                 }
+                loopFinished.Dispose();
+                GC.SuppressFinalize(this);
             }
         }
 

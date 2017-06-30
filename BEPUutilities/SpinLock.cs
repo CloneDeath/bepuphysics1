@@ -66,7 +66,7 @@ namespace BEPUutilities
             }
             else
             {
-                Thread.SpinWait(Math.Min(3 << attempt, MaximumSpinWait));
+                Thread.Sleep(Math.Min(3 << attempt, MaximumSpinWait));
             }
         }
     }

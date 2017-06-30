@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using BEPUphysics.BroadPhaseEntries.MobileCollidables;
 using BEPUutilities;
 using BEPUutilities.DataStructures;
@@ -237,7 +238,7 @@ namespace BEPUphysics.CollisionShapes
                 totalWeight += entries[i].Weight;
             }
             if (totalWeight <= 0)
-                throw new NotFiniteNumberException("Cannot compute distribution; the total weight of a compound shape must be positive.");
+                throw new InvalidDataException("Cannot compute distribution; the total weight of a compound shape must be positive.");
             float totalWeightInverse = 1 / totalWeight;
             totalWeightInverse.Validate();
             center *= totalWeightInverse;

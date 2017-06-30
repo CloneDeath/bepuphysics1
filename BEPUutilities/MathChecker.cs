@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.IO;
 
 namespace BEPUutilities
 {
@@ -27,7 +28,7 @@ namespace BEPUutilities
         {
             if (IsInvalid(f))
             {
-                throw new NotFiniteNumberException("Invalid value.");
+                throw new InvalidDataException("Invalid value.");
             }
         }
 
@@ -40,7 +41,7 @@ namespace BEPUutilities
         {
             if (IsInvalid(v.LengthSquared()))
             {
-                throw new NotFiniteNumberException("Invalid value.");
+                throw new InvalidDataException("Invalid value.");
             }
         }
 
@@ -54,7 +55,7 @@ namespace BEPUutilities
             if (IsInvalid(m.M11) || IsInvalid(m.M12) ||
                 IsInvalid(m.M21) || IsInvalid(m.M22))
             {
-                throw new NotFiniteNumberException("Invalid value.");
+                throw new InvalidDataException("Invalid value.");
             }
         }
 
@@ -69,7 +70,7 @@ namespace BEPUutilities
                 IsInvalid(m.M21) || IsInvalid(m.M22) ||
                 IsInvalid(m.M31) || IsInvalid(m.M32))
             {
-                throw new NotFiniteNumberException("Invalid value.");
+                throw new InvalidDataException("Invalid value.");
             }
         }
 
@@ -83,7 +84,7 @@ namespace BEPUutilities
             if (IsInvalid(m.M11) || IsInvalid(m.M12) || IsInvalid(m.M13) ||
                 IsInvalid(m.M21) || IsInvalid(m.M22) || IsInvalid(m.M23))
             {
-                throw new NotFiniteNumberException("Invalid value.");
+                throw new InvalidDataException("Invalid value.");
             }
         }
 
@@ -112,7 +113,7 @@ namespace BEPUutilities
             m.Translation.Validate();
             if (IsInvalid(m.M14) || IsInvalid(m.M24) || IsInvalid(m.M34) || IsInvalid(m.M44))
             {
-                throw new NotFiniteNumberException("Invalid value.");
+                throw new InvalidDataException("Invalid value.");
             }
         }
 
@@ -125,7 +126,7 @@ namespace BEPUutilities
         {
             if (IsInvalid(q.LengthSquared()))
             {
-                throw new NotFiniteNumberException("Invalid value.");
+                throw new InvalidDataException("Invalid value.");
             }
         }
 
@@ -171,7 +172,7 @@ namespace BEPUutilities
         {
             b.Center.Validate();
             if (IsInvalid(b.Radius))
-                throw new NotFiniteNumberException("Invalid value.");
+                throw new InvalidDataException("Invalid value.");
         }
 
     }
