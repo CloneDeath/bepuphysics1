@@ -175,11 +175,7 @@ namespace BEPUphysics.Constraints.TwoEntity.Joints
         {
             get
             {
-#if !WINDOWS
                 Vector2 lambda = new Vector2();
-#else
-                Vector2 lambda;
-#endif
                 Vector3 dv;
                 Vector3 aVel, bVel;
                 Vector3.Cross(ref connectionA.angularVelocity, ref rA, out aVel);
@@ -313,24 +309,7 @@ namespace BEPUphysics.Constraints.TwoEntity.Joints
 
             #endregion
 
-#if !WINDOWS
             Vector2 lambda = new Vector2();
-#else
-            Vector2 lambda;
-#endif
-            //float va1, va2, wa1, wa2, vb1, vb2, wb1, wb2;
-            //Vector3.Dot(ref worldAxis1, ref myParentA.myInternalLinearVelocity, out va1);
-            //Vector3.Dot(ref worldAxis2, ref myParentA.myInternalLinearVelocity, out va2);
-            //wa1 = prAT.M11 * myParentA.myInternalAngularVelocity.X + prAT.M12 * myParentA.myInternalAngularVelocity.Y + prAT.M13 * myParentA.myInternalAngularVelocity.Z;
-            //wa2 = prAT.M21 * myParentA.myInternalAngularVelocity.X + prAT.M22 * myParentA.myInternalAngularVelocity.Y + prAT.M23 * myParentA.myInternalAngularVelocity.Z;
-
-            //Vector3.Dot(ref worldAxis1, ref myParentB.myInternalLinearVelocity, out vb1);
-            //Vector3.Dot(ref worldAxis2, ref myParentB.myInternalLinearVelocity, out vb2);
-            //wb1 = prBT.M11 * myParentB.myInternalAngularVelocity.X + prBT.M12 * myParentB.myInternalAngularVelocity.Y + prBT.M13 * myParentB.myInternalAngularVelocity.Z;
-            //wb2 = prBT.M21 * myParentB.myInternalAngularVelocity.X + prBT.M22 * myParentB.myInternalAngularVelocity.Y + prBT.M23 * myParentB.myInternalAngularVelocity.Z;
-
-            //lambda.X = va1 + wa1 - vb1 - wb1 + biasVelocity.X + mySoftness * accumulatedImpulse.X;
-            //lambda.Y = va2 + wa2 - vb2 - wb2 + biasVelocity.Y + mySoftness * accumulatedImpulse.Y;
             Vector3 dv;
             Vector3 aVel, bVel;
             Vector3.Cross(ref connectionA.angularVelocity, ref rA, out aVel);
@@ -353,13 +332,8 @@ namespace BEPUphysics.Constraints.TwoEntity.Joints
             float x = lambda.X;
             float y = lambda.Y;
             //Apply impulse
-#if !WINDOWS
             Vector3 impulse = new Vector3();
             Vector3 torque= new Vector3();
-#else
-            Vector3 impulse;
-            Vector3 torque;
-#endif
             impulse.X = worldRestrictedAxis1.X * x + worldRestrictedAxis2.X * y;
             impulse.Y = worldRestrictedAxis1.Y * x + worldRestrictedAxis2.Y * y;
             impulse.Z = worldRestrictedAxis1.Z * x + worldRestrictedAxis2.Z * y;

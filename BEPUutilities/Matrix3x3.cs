@@ -95,11 +95,7 @@ namespace BEPUutilities
         {
             get
             {
-#if !WINDOWS
                 Vector3 vector = new Vector3();
-#else
-                Vector3 vector;
-#endif
                 vector.X = M31;
                 vector.Y = M32;
                 vector.Z = M33;
@@ -120,11 +116,7 @@ namespace BEPUutilities
         {
             get
             {
-#if !WINDOWS
                 Vector3 vector = new Vector3();
-#else
-                Vector3 vector;
-#endif
                 vector.X = -M21;
                 vector.Y = -M22;
                 vector.Z = -M23;
@@ -145,11 +137,7 @@ namespace BEPUutilities
         {
             get
             {
-#if !WINDOWS
                 Vector3 vector = new Vector3();
-#else
-                Vector3 vector;
-#endif
                 vector.X = -M31;
                 vector.Y = -M32;
                 vector.Z = -M33;
@@ -170,11 +158,7 @@ namespace BEPUutilities
         {
             get
             {
-#if !WINDOWS
                 Vector3 vector = new Vector3();
-#else
-                Vector3 vector;
-#endif
                 vector.X = -M11;
                 vector.Y = -M12;
                 vector.Z = -M13;
@@ -195,11 +179,7 @@ namespace BEPUutilities
         {
             get
             {
-#if !WINDOWS
                 Vector3 vector = new Vector3();
-#else
-                Vector3 vector;
-#endif
                 vector.X = M11;
                 vector.Y = M12;
                 vector.Z = M13;
@@ -220,11 +200,7 @@ namespace BEPUutilities
         {
             get
             {
-#if !WINDOWS
                 Vector3 vector = new Vector3();
-#else
-                Vector3 vector;
-#endif
                 vector.X = M21;
                 vector.Y = M22;
                 vector.Z = M23;
@@ -1035,11 +1011,7 @@ namespace BEPUutilities
         /// <returns>Created 4x4 matrix.</returns>
         public static Matrix ToMatrix4X4(Matrix3x3 a)
         {
-#if !WINDOWS
             Matrix b = new Matrix();
-#else
-            Matrix b;
-#endif
             b.M11 = a.M11;
             b.M12 = a.M12;
             b.M13 = a.M13;

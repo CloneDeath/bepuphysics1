@@ -639,11 +639,7 @@ namespace BEPUphysics.Character
             {
                 //The relative velocity's x component is in the movement direction.
                 //y is the perpendicular direction.
-#if !WINDOWS
                 Vector2 relativeVelocity = new Vector2();
-#else
-                Vector2 relativeVelocity;
-#endif
 
                 Vector3.Dot(ref linearJacobianA1, ref characterBody.linearVelocity, out relativeVelocity.X);
                 Vector3.Dot(ref linearJacobianA2, ref characterBody.linearVelocity, out relativeVelocity.Y);

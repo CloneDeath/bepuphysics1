@@ -261,11 +261,7 @@ namespace BEPUphysics.Constraints.TwoEntity.JointLimits
             float angle;
             Quaternion.GetAxisAngleFromQuaternion(ref relativeRotation, out axis, out angle);
 
-#if !WINDOWS
             Vector3 axisAngle = new Vector3();
-#else
-            Vector3 axisAngle;
-#endif
             //This combined axis-angle representation is similar to angular velocity in describing a rotation.
             //Just like you can dot an axis with angular velocity to get a velocity around that axis,
             //dotting an axis with the axis-angle representation gets the angle of rotation around that axis.
@@ -312,11 +308,7 @@ namespace BEPUphysics.Constraints.TwoEntity.JointLimits
             //Splitting it out fully would reveal two dot products with equivalent but negated jacobians.]
 
             //The jacobian is implemented by first considering the local values (2x / a^2) and (2y / b^2).
-#if !WINDOWS
             Vector2 tangent = new Vector2();
-#else
-            Vector2 tangent;
-#endif
             tangent.X = 2 * angleX / maxAngleXSquared;
             tangent.Y = 2 * angleY / maxAngleYSquared;
 

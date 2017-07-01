@@ -83,11 +83,7 @@ namespace BEPUphysics.Vehicle
         /// </summary>
         public override void UpdateWorldTransform()
         {
-#if !WINDOWS
             Vector3 newPosition = new Vector3();
-#else
-            Vector3 newPosition;
-#endif
             Vector3 worldAttachmentPoint;
             Vector3 localAttach;
             Vector3.Add(ref wheel.suspension.localAttachmentPoint, ref wheel.vehicle.Body.CollisionInformation.localPosition, out localAttach);
@@ -241,11 +237,7 @@ namespace BEPUphysics.Vehicle
         /// </summary>
         protected internal override void UpdateDetectorPosition()
         {
-#if !WINDOWS
             Vector3 newPosition = new Vector3();
-#else
-            Vector3 newPosition;
-#endif
 
             newPosition.X = wheel.suspension.worldAttachmentPoint.X + wheel.suspension.worldDirection.X * wheel.suspension.restLength * .5f;
             newPosition.Y = wheel.suspension.worldAttachmentPoint.Y + wheel.suspension.worldDirection.Y * wheel.suspension.restLength * .5f;

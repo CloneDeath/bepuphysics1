@@ -356,11 +356,7 @@ namespace BEPUphysics.Constraints.TwoEntity.JointLimits
             Matrix3x3.Transform(ref localAxis, ref connectionA.orientationMatrix, out worldAxis);
 
             //Compute error
-#if !WINDOWS
             Vector3 separation = new Vector3();
-#else
-            Vector3 separation;
-#endif
             separation.X = worldAnchorB.X - worldAnchorA.X;
             separation.Y = worldAnchorB.Y - worldAnchorA.Y;
             separation.Z = worldAnchorB.Z - worldAnchorA.Z;

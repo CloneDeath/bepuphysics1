@@ -331,11 +331,7 @@ namespace BEPUphysics.Constraints.TwoEntity.Motors
             if (settings.mode == MotorMode.Servomechanism)
             {
                 //Compute error
-#if !WINDOWS
-            Vector3 separation = new Vector3();
-#else
-                Vector3 separation;
-#endif
+                Vector3 separation = new Vector3();
                 separation.X = worldAnchorB.X - worldAnchorA.X;
                 separation.Y = worldAnchorB.Y - worldAnchorA.Y;
                 separation.Z = worldAnchorB.Z - worldAnchorA.Z;

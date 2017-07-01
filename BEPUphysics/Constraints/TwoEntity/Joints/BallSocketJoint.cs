@@ -286,11 +286,7 @@ namespace BEPUphysics.Constraints.TwoEntity.Joints
         {
             //Warm starting
             //Constraint.applyImpulse(myConnectionA, myConnectionB, ref rA, ref rB, ref accumulatedImpulse);
-#if !WINDOWS
             Vector3 linear = new Vector3();
-#else
-            Vector3 linear;
-#endif
             if (connectionA.isDynamic)
             {
                 linear.X = -accumulatedImpulse.X;
@@ -317,11 +313,7 @@ namespace BEPUphysics.Constraints.TwoEntity.Joints
         /// </summary>
         public override float SolveIteration()
         {
-#if !WINDOWS
             Vector3 lambda = new Vector3();
-#else
-            Vector3 lambda;
-#endif
 
             //Velocity along the length.
             Vector3 cross;
@@ -343,11 +335,7 @@ namespace BEPUphysics.Constraints.TwoEntity.Joints
 
             //Apply the impulse
             //Constraint.applyImpulse(myConnectionA, myConnectionB, ref rA, ref rB, ref impulse);
-#if !WINDOWS
             Vector3 linear = new Vector3();
-#else
-            Vector3 linear;
-#endif
             if (connectionA.isDynamic)
             {
                 linear.X = -lambda.X;

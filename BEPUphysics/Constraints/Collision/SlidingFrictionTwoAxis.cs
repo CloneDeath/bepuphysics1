@@ -115,11 +115,7 @@ namespace BEPUphysics.Constraints.Collision
                 //float dvz = entityA.linearVelocity.Z + (entityA.angularVelocity.X * ra.Y) - (entityA.angularVelocity.Y * ra.X)
                 //            - entityB.linearVelocity.Z - (entityB.angularVelocity.X * rb.Y) + (entityB.angularVelocity.Y * rb.X);
 
-#if !WINDOWS
                 Vector2 lambda = new Vector2();
-#else
-                Vector2 lambda;
-#endif
                 lambda.X = dvx * linearA.M11 + dvy * linearA.M12 + dvz * linearA.M13;
                 lambda.Y = dvx * linearA.M21 + dvy * linearA.M22 + dvz * linearA.M23;
                 return lambda;

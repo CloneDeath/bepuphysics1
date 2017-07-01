@@ -105,11 +105,7 @@ namespace BEPUphysics.Constraints.SingleEntity
         /// </summary>
         public override float SolveIteration()
         {
-#if !WINDOWS
             Vector3 lambda = new Vector3();
-#else
-            Vector3 lambda;
-#endif
             Vector3 aVel = entity.angularVelocity;
             lambda.X = -aVel.X + biasVelocity.X - usedSoftness * accumulatedImpulse.X;
             lambda.Y = -aVel.Y + biasVelocity.Y - usedSoftness * accumulatedImpulse.Y;
