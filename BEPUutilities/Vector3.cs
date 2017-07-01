@@ -80,7 +80,7 @@ namespace BEPUutilities
         /// </summary>
         public void Normalize()
         {
-            float inverse = (float)(1 / Math.Sqrt(X * X + Y * Y + Z * Z));
+            var inverse = (float)(1 / Math.Sqrt(X * X + Y * Y + Z * Z));
             X *= inverse;
             Y *= inverse;
             Z *= inverse;
@@ -174,7 +174,7 @@ namespace BEPUutilities
         /// <param name="result">Result of the division.</param>
         public static void Divide(ref Vector3 v, float divisor, out Vector3 result)
         {
-            float inverse = 1 / divisor;
+            var inverse = 1 / divisor;
             result.X = v.X * inverse;
             result.Y = v.Y * inverse;
             result.Z = v.Z * inverse;
@@ -349,9 +349,9 @@ namespace BEPUutilities
         /// <param name="distanceSquared">Squared distance between the two vectors.</param>
         public static void DistanceSquared(ref Vector3 a, ref Vector3 b, out float distanceSquared)
         {
-            float x = a.X - b.X;
-            float y = a.Y - b.Y;
-            float z = a.Z - b.Z;
+            var x = a.X - b.X;
+            var y = a.Y - b.Y;
+            var z = a.Z - b.Z;
             distanceSquared = x * x + y * y + z * z;
         }
 
@@ -363,9 +363,9 @@ namespace BEPUutilities
         /// <returns>Squared distance between the two vectors.</returns>
         public static float DistanceSquared(Vector3 a, Vector3 b)
         {
-            float x = a.X - b.X;
-            float y = a.Y - b.Y;
-            float z = a.Z - b.Z;
+            var x = a.X - b.X;
+            var y = a.Y - b.Y;
+            var z = a.Z - b.Z;
             return x * x + y * y + z * z;
         }
 
@@ -378,9 +378,9 @@ namespace BEPUutilities
         /// <param name="distance">Distance between the two vectors.</param>
         public static void Distance(ref Vector3 a, ref Vector3 b, out float distance)
         {
-            float x = a.X - b.X;
-            float y = a.Y - b.Y;
-            float z = a.Z - b.Z;
+            var x = a.X - b.X;
+            var y = a.Y - b.Y;
+            var z = a.Z - b.Z;
             distance = (float)Math.Sqrt(x * x + y * y + z * z);
         }
         /// <summary>
@@ -399,133 +399,52 @@ namespace BEPUutilities
         /// <summary>
         /// Gets the zero vector.
         /// </summary>
-        public static Vector3 Zero
-        {
-            get
-            {
-                return new Vector3();
-            }
-        }
+        public static Vector3 Zero => new Vector3();
 
         /// <summary>
         /// Gets the up vector (0,1,0).
         /// </summary>
-        public static Vector3 Up
-        {
-            get
-            {
-                return new Vector3()
-                {
-                    X = 0,
-                    Y = 1,
-                    Z = 0
-                };
-            }
-        }
+        public static Vector3 Up => new Vector3 { X = 0, Y = 1, Z = 0 };
 
         /// <summary>
         /// Gets the down vector (0,-1,0).
         /// </summary>
-        public static Vector3 Down
-        {
-            get
-            {
-                return new Vector3()
-                {
-                    X = 0,
-                    Y = -1,
-                    Z = 0
-                };
-            }
-        }
+        public static Vector3 Down => new Vector3 { X = 0, Y = -1, Z = 0 };
 
         /// <summary>
         /// Gets the right vector (1,0,0).
         /// </summary>
-        public static Vector3 Right
-        {
-            get
-            {
-                return new Vector3()
-                {
-                    X = 1,
-                    Y = 0,
-                    Z = 0
-                };
-            }
-        }
+        public static Vector3 Right => new Vector3 { X = 1, Y = 0, Z = 0 };
 
         /// <summary>
         /// Gets the left vector (-1,0,0).
         /// </summary>
-        public static Vector3 Left
-        {
-            get
-            {
-                return new Vector3()
-                {
-                    X = -1,
-                    Y = 0,
-                    Z = 0
-                };
-            }
-        }
+        public static Vector3 Left => new Vector3 { X = -1, Y = 0, Z = 0 };
 
         /// <summary>
         /// Gets the forward vector (0,0,-1).
         /// </summary>
-        public static Vector3 Forward
-        {
-            get
-            {
-                return new Vector3()
-                {
-                    X = 0,
-                    Y = 0,
-                    Z = -1
-                };
-            }
-        }
+        public static Vector3 Forward => new Vector3 { X = 0, Y = 0, Z = -1 };
 
         /// <summary>
         /// Gets the back vector (0,0,1).
         /// </summary>
-        public static Vector3 Backward
-        {
-            get
-            {
-                return new Vector3()
-                {
-                    X = 0,
-                    Y = 0,
-                    Z = 1
-                };
-            }
-        }
+        public static Vector3 Backward => new Vector3 { X = 0, Y = 0, Z = 1 };
 
         /// <summary>
         /// Gets a vector pointing along the X axis.
         /// </summary>
-        public static Vector3 UnitX
-        {
-            get { return new Vector3 { X = 1 }; }
-        }
+        public static Vector3 UnitX => new Vector3 { X = 1 };
 
         /// <summary>
         /// Gets a vector pointing along the Y axis.
         /// </summary>
-        public static Vector3 UnitY
-        {
-            get { return new Vector3 { Y = 1 }; }
-        }
+        public static Vector3 UnitY => new Vector3 { Y = 1 };
 
         /// <summary>
         /// Gets a vector pointing along the Z axis.
         /// </summary>
-        public static Vector3 UnitZ
-        {
-            get { return new Vector3 { Z = 1 }; }
-        }
+        public static Vector3 UnitZ => new Vector3 { Z = 1 };
 
         /// <summary>
         /// Computes the cross product between two vectors.
@@ -539,6 +458,7 @@ namespace BEPUutilities
             Vector3.Cross(ref a, ref b, out toReturn);
             return toReturn;
         }
+        
         /// <summary>
         /// Computes the cross product between two vectors.
         /// </summary>
@@ -547,9 +467,9 @@ namespace BEPUutilities
         /// <param name="result">Cross product of the two vectors.</param>
         public static void Cross(ref Vector3 a, ref Vector3 b, out Vector3 result)
         {
-            float resultX = a.Y * b.Z - a.Z * b.Y;
-            float resultY = a.Z * b.X - a.X * b.Z;
-            float resultZ = a.X * b.Y - a.Y * b.X;
+            var resultX = a.Y * b.Z - a.Z * b.Y;
+            var resultY = a.Z * b.X - a.X * b.Z;
+            var resultZ = a.X * b.Y - a.Y * b.X;
             result.X = resultX;
             result.Y = resultY;
             result.Z = resultZ;
@@ -574,7 +494,7 @@ namespace BEPUutilities
         /// <param name="result">Normalized vector.</param>
         public static void Normalize(ref Vector3 v, out Vector3 result)
         {
-            float inverse = (float)(1 / System.Math.Sqrt(v.X * v.X + v.Y * v.Y + v.Z * v.Z));
+            var inverse = (float)(1 / System.Math.Sqrt(v.X * v.X + v.Y * v.Y + v.Z * v.Z));
             result.X = v.X * inverse;
             result.Y = v.Y * inverse;
             result.Z = v.Z * inverse;
@@ -700,7 +620,7 @@ namespace BEPUutilities
         /// <param name="result">Interpolated intermediate state.</param>
         public static void Lerp(ref Vector3 start, ref Vector3 end, float interpolationAmount, out Vector3 result)
         {
-            float startAmount = 1 - interpolationAmount;
+            var startAmount = 1 - interpolationAmount;
             result.X = start.X * startAmount + end.X * interpolationAmount;
             result.Y = start.Y * startAmount + end.Y * interpolationAmount;
             result.Z = start.Z * startAmount + end.Z * interpolationAmount;
@@ -717,16 +637,17 @@ namespace BEPUutilities
         /// <param name="result">Interpolated intermediate state.</param>
         public static void Hermite(ref Vector3 value1, ref Vector3 tangent1, ref Vector3 value2, ref Vector3 tangent2, float interpolationAmount, out Vector3 result)
         {
-            float weightSquared = interpolationAmount * interpolationAmount;
-            float weightCubed = interpolationAmount * weightSquared;
-            float value1Blend = 2 * weightCubed - 3 * weightSquared + 1;
-            float tangent1Blend = weightCubed - 2 * weightSquared + interpolationAmount;
-            float value2Blend = -2 * weightCubed + 3 * weightSquared;
-            float tangent2Blend = weightCubed - weightSquared;
+            var weightSquared = interpolationAmount * interpolationAmount;
+            var weightCubed = interpolationAmount * weightSquared;
+            var value1Blend = 2 * weightCubed - 3 * weightSquared + 1;
+            var tangent1Blend = weightCubed - 2 * weightSquared + interpolationAmount;
+            var value2Blend = -2 * weightCubed + 3 * weightSquared;
+            var tangent2Blend = weightCubed - weightSquared;
             result.X = value1.X * value1Blend + value2.X * value2Blend + tangent1.X * tangent1Blend + tangent2.X * tangent2Blend;
             result.Y = value1.Y * value1Blend + value2.Y * value2Blend + tangent1.Y * tangent1Blend + tangent2.Y * tangent2Blend;
             result.Z = value1.Z * value1Blend + value2.Z * value2Blend + tangent1.Z * tangent1Blend + tangent2.Z * tangent2Blend;
         }
+        
         /// <summary>
         /// Computes an intermediate location using hermite interpolation.
         /// </summary>
@@ -741,6 +662,14 @@ namespace BEPUutilities
             Vector3 toReturn;
             Hermite(ref value1, ref tangent1, ref value2, ref tangent2, interpolationAmount, out toReturn);
             return toReturn;
+        }
+
+        public static implicit operator System.Numerics.Vector3(Vector3 self) {
+            return new System.Numerics.Vector3(self.X, self.Y, self.Z);
+        }
+        
+        public static implicit operator Vector3(System.Numerics.Vector3 self) {
+            return new Vector3(self.X, self.Y, self.Z);
         }
     }
 }
